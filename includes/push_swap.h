@@ -41,4 +41,8 @@ typedef struct s_container
 	t_stack	*stack2;
 }	t_container;
 
+void	swap_a(t_container *container);
+void	swap_b(t_container *container);
+void	swap_ab(t_container *container);
+
 #endif

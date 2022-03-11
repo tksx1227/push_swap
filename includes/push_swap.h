@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/11 15:18:07 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/11 16:02:04 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,5 +54,9 @@ void	push_b(t_container *container);
 void	rotate_a(t_container *container);
 void	rotate_b(t_container *container);
 void	rotate_ab(t_container *container);
+// rra, rrb, rrr
+void	rrotate_a(t_container *container);
+void	rrotate_b(t_container *container);
+void	rrotate_ab(t_container *container);
 
 #endif

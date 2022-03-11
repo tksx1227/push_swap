@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/09 00:02:27 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/11 14:54:24 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ typedef enum e_operator
 {
 	SA,
 	SB,
+	SS,
 	PA,
 	PB,
 	RA,
@@ -41,8 +42,13 @@ typedef struct s_container
 	t_stack	*stack2;
 }	t_container;
 
+/* Operators */
+// sa, sb, ss
 void	swap_a(t_container *container);
 void	swap_b(t_container *container);
 void	swap_ab(t_container *container);
+// pa, pb
+void	push_a(t_container *container);
+void	push_b(t_container *container);
 
 #endif

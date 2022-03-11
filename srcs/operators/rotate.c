@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:34:58 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/11 15:15:45 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/11 15:32:32 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,15 +32,15 @@ void	rotate_ab(t_container *container)
 
 static void	rotate_base(t_stack *stack)
 {
-	t_list	*new;
+	t_list	*head;
 
-	if (0 < stack->size)
+	if (2 <= stack->size)
 	{
-		new = ft_lstnew(stack->elements->content);
-		ft_lstadd_back(&(stack->elements), new);
+		head = stack->elements;
 		stack->elements = stack->elements->next;
-		// freeになる予定
-		ft_lstdelone(stack->elements->prev, NULL);
 		stack->elements->prev = NULL;
+		head->prev = NULL;
+		head->next = NULL;
+		ft_lstadd_back(&(stack->elements), head);
 	}
 }

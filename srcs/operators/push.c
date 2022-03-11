@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/11 14:53:23 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/11 15:57:41 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,20 +36,18 @@ void	push_b(t_container *container)
 
 static void	push_base(t_stack *from_stack, t_stack *to_stack)
 {
-	t_list	*new;
+	t_list	*target;
 
-	if (0 <= from_stack->size)
+	if (0 < from_stack->size)
 	{
-		new = ft_lstnew(from_stack->elements->content);
-		if (new == NULL)
-		{
-			ft_dprintf(STDERR_FILENO, "Error\n");
-			exit(1);
-		}
-		ft_lstadd_front(&(to_stack->elements), new);
+		target = from_stack->elements;
 		from_stack->elements = from_stack->elements->next;
-		ft_lstdelone(from_stack->elements->prev, NULL);
-		from_stack->elements->prev = NULL;
+		if (from_stack->elements != NULL)
+			from_stack->elements->prev = NULL;
+		target->prev = NULL;
+		target->next = to_stack->elements;
+		to_stack->elements->prev = target;
+		to_stack->elements = target;
 		to_stack->size++;
 		from_stack->size--;
 	}

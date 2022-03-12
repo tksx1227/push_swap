@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:42:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/12 17:10:57 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:13:06 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,6 +15,21 @@
 static t_status	is_digit_all(int size, char **arr);
 static t_status	is_integer(char	*s);
 static t_status	is_unique_all(int size, char **arr);
+
+t_status	is_valid_args(int size, char **args)
+{
+	if (size == 1)
+	{
+		return (FAIL);
+	}
+	size--;
+	args = &args[1];
+	if (is_digit_all(size, args) && is_unique_all(size, args))
+	{
+		return (SUCCESS);
+	}
+	return (FAIL);
+}
 
 static t_status	is_digit_all(int size, char **arr)
 {

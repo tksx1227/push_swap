@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/09 00:37:17 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/11 16:14:20 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/13 00:05:47 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,6 @@
 
 void	free_stack(t_stack *stack)
 {
-	ft_lstclear(&stack, free);
+	ft_lstclear(&stack->elements, free);
 	free(stack);
 }

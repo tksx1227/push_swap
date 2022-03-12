@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:42:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/12 17:05:18 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:10:57 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 
 static t_status	is_digit_all(int size, char **arr);
 static t_status	is_integer(char	*s);
+static t_status	is_unique_all(int size, char **arr);
 
 static t_status	is_digit_all(int size, char **arr)
 {
@@ -53,6 +54,30 @@ static t_status	is_integer(char	*s)
 			return (FAIL);
 		if (n < (long long)INT_MIN || (long long)INT_MAX < n)
 			return (FAIL);
+		i++;
+	}
+	return (SUCCESS);
+}
+
+static t_status	is_unique_all(int size, char **arr)
+{
+	int	n1;
+	int	n2;
+	int	i;
+	int	j;
+
+	i = 0;
+	while (i < size - 1)
+	{
+		n1 = ft_atoi(arr[i]);
+		j = i + 1;
+		while (j < size)
+		{
+			n2 = ft_atoi(arr[j]);
+			if (n1 == n2)
+				return (FAIL);
+			j++;
+		}
 		i++;
 	}
 	return (SUCCESS);

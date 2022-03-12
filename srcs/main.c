@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:42:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/07 23:53:44 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/13 00:33:36 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 int	main(int argc, char **argv)
 {
-	if (argc == 1)
-		return (1);
-	if (/* Check arguments */)
+	if (is_valid_args(argc, argv))
 	{
-		ft_dprintf(2, "Error\n");
-		return (1);
+		/* Create and sort two stacks */
 	}
 	else
 	{
-		/* Create and sort two stacks */
+		ft_dprintf(STDERR_FILENO, "Error: Invalid arguments.\n");
+		ft_dprintf(STDERR_FILENO, "Usage: push_swap <numbers>.\n");
+		ft_dprintf(STDERR_FILENO, \
+				"Numbers are integers and must not be duplicated.\n");
+		return (1);
 	}
 	return (0);
 }

@@ -6,32 +6,32 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:42:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/12 17:13:06 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/12 17:38:55 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_status	is_digit_all(int size, char **arr);
-static t_status	is_integer(char	*s);
-static t_status	is_unique_all(int size, char **arr);
+static bool	is_digit_all(int size, char **arr);
+static bool	is_integer(char	*s);
+static bool	is_unique_all(int size, char **arr);
 
-t_status	is_valid_args(int size, char **args)
+bool	is_valid_args(int size, char **args)
 {
 	if (size == 1)
 	{
-		return (FAIL);
+		return (false);
 	}
 	size--;
 	args = &args[1];
 	if (is_digit_all(size, args) && is_unique_all(size, args))
 	{
-		return (SUCCESS);
+		return (true);
 	}
-	return (FAIL);
+	return (false);
 }
 
-static t_status	is_digit_all(int size, char **arr)
+static bool	is_digit_all(int size, char **arr)
 {
 	int	i;
 
@@ -39,13 +39,13 @@ static t_status	is_digit_all(int size, char **arr)
 	while (i < size)
 	{
 		if (!is_integer(arr[i]))
-			return (FAIL);
+			return (false);
 		i++;
 	}
-	return (SUCCESS);
+	return (true);
 }
 
-static t_status	is_integer(char	*s)
+static bool	is_integer(char	*s)
 {
 	int			i;
 	int			sign;
@@ -59,22 +59,22 @@ static t_status	is_integer(char	*s)
 		sign = -1;
 	}
 	if (s[i] == '0' && s[i + 1] != '\0')
-		return (FAIL);
+		return (false);
 	n = 0;
 	while (s[i] != '\0')
 	{
 		if (ft_isdigit(s[i]))
 			n = n * 10 + sign * (s[i] - '0');
 		else
-			return (FAIL);
+			return (false);
 		if (n < (long long)INT_MIN || (long long)INT_MAX < n)
-			return (FAIL);
+			return (false);
 		i++;
 	}
-	return (SUCCESS);
+	return (true);
 }
 
-static t_status	is_unique_all(int size, char **arr)
+static bool	is_unique_all(int size, char **arr)
 {
 	int	n1;
 	int	n2;
@@ -90,10 +90,10 @@ static t_status	is_unique_all(int size, char **arr)
 		{
 			n2 = ft_atoi(arr[j]);
 			if (n1 == n2)
-				return (FAIL);
+				return (false);
 			j++;
 		}
 		i++;
 	}
-	return (SUCCESS);
+	return (true);
 }

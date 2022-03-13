@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/12 17:37:46 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/13 14:50:22 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,7 +28,8 @@ typedef struct s_container
 }	t_container;
 
 /* Utils */
-bool	is_valid_args(int size, char **args);
+bool		is_valid_args(int size, char **args);
+void		free_container(t_container *container);
 
 /* Operators */
 // sa, sb, ss

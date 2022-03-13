@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/11 15:57:41 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/13 14:54:43 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -46,7 +46,8 @@ static void	push_base(t_stack *from_stack, t_stack *to_stack)
 			from_stack->elements->prev = NULL;
 		target->prev = NULL;
 		target->next = to_stack->elements;
-		to_stack->elements->prev = target;
+		if (to_stack->elements != NULL)
+			to_stack->elements->prev = target;
 		to_stack->elements = target;
 		to_stack->size++;
 		from_stack->size--;

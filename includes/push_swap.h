@@ -31,6 +31,7 @@ typedef struct s_container
 bool		is_valid_args(int size, char **args);
 t_container	*get_new_container(int size, char **arr);
 void		free_container(t_container *container);
+void		show_two_stacks(t_container *container);
 
 /* Operators */
 // sa, sb, ss

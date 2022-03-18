@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/13 14:50:22 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/18 10:14:34 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,7 @@ typedef struct s_container
 
 /* Utils */
 bool		is_valid_args(int size, char **args);
+bool		is_sorted_stack(t_stack *stack);
 t_container	*get_new_container(int size, char **arr);
 void		free_container(t_container *container);
 void		show_two_stacks(t_container *container);

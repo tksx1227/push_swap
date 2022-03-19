@@ -1,28 +1,25 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   free_container.c                                   :+:      :+:    :+:   */
+/*   show_operators.c                                   :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/03/13 01:22:59 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/13 14:31:59 by ttomori          ###   ########.fr       */
+/*   Created: 2022/03/19 13:14:43 by ttomori           #+#    #+#             */
+/*   Updated: 2022/03/19 13:15:56 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	free_stack(t_stack *stack);
-
-void	free_container(t_container *container)
+void	show_operators(t_list *operators)
 {
-	free_stack(container->stack1);
-	free_stack(container->stack2);
-	free(container);
-}
+	t_list	*node;
 
-static void	free_stack(t_stack *stack)
-{
-	ft_lstclear(&(stack->elements), free);
-	free(stack);
+	node = operators;
+	while (node != NULL)
+	{
+		ft_dprintf(STDOUT_FILENO, "%s\n", (char *)node->content);
+		node = node->next;
+	}
 }

@@ -6,50 +6,59 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/13 14:54:43 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/19 12:56:35 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	push_base(t_stack *from, t_stack *to);
+static void	add_one_elem(t_stack *stack, int n);
+static void	drop_one_elem(t_stack *stack);
 
-void	push_a(t_container *container)
+void	push_stack(t_stack *from_stack, t_stack *to_stack)
 {
-	t_stack	*to_stack;
-	t_stack	*from_stack;
-
-	to_stack = container->stack1;
-	from_stack = container->stack2;
-	push_base(from_stack, to_stack);
-}
-
-void	push_b(t_container *container)
-{
-	t_stack	*to_stack;
-	t_stack	*from_stack;
-
-	to_stack = container->stack2;
-	from_stack = container->stack1;
-	push_base(from_stack, to_stack);
-}
-
-static void	push_base(t_stack *from_stack, t_stack *to_stack)
-{
-	t_list	*target;
-
 	if (0 < from_stack->size)
 	{
-		target = from_stack->elements;
-		from_stack->elements = from_stack->elements->next;
-		if (from_stack->elements != NULL)
-			from_stack->elements->prev = NULL;
-		target->prev = NULL;
-		target->next = to_stack->elements;
-		if (to_stack->elements != NULL)
-			to_stack->elements->prev = target;
-		to_stack->elements = target;
-		to_stack->size++;
-		from_stack->size--;
+		add_one_elem(to_stack, from_stack->elems[0]);
+		drop_one_elem(from_stack);
 	}
+}
+
+static void	add_one_elem(t_stack *stack, int n)
+{
+	size_t	i;
+	int		*new_elems;
+
+	new_elems = (int *)malloc(sizeof(int) * (stack->size + 1));
+	if (new_elems == NULL)
+		exit(2);
+	i = 0;
+	new_elems[i] = n;
+	while (i < stack->size)
+	{
+		new_elems[i + 1] = stack->elems[i];
+		i++;
+	}
+	free(stack->elems);
+	stack->elems = new_elems;
+	stack->size++;
+}
+
+static void	drop_one_elem(t_stack *stack)
+{
+	size_t	i;
+	int		*new_elems;
+
+	new_elems = (int *)malloc(sizeof(int) * (stack->size - 1));
+	if (new_elems == NULL)
+		exit(2);
+	i = 0;
+	while (i < stack->size - 1)
+	{
+		new_elems[i] = stack->elems[i + 1];
+		i++;
+	}
+	free(stack->elems);
+	stack->elems = new_elems;
+	stack->size--;
 }

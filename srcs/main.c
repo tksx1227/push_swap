@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:42:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/13 14:55:40 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/19 13:21:28 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,13 +14,13 @@
 
 int	main(int argc, char **argv)
 {
-	t_container	*container;
-
-	if (is_valid_args(argc, argv))
+	if (argc == 1)
 	{
-		container = get_new_container(argc - 1, &argv[1]);
-		/* Sort two stacks */
-		free_container(container);
+		return (0);
+	}
+	else if (is_valid_args(argc, argv))
+	{
+		push_swap(argc - 1, &argv[1]);
 	}
 	else
 	{

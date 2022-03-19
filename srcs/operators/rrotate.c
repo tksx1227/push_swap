@@ -6,40 +6,32 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:34:58 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/11 16:05:42 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/19 12:04:45 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static void	rrotate_base(t_stack *stack);
-
-void	rrotate_a(t_container *container)
+void	rrotate_one_stack(t_stack *stack)
 {
-	rrotate_base(container->stack1);
-}
-
-void	rrotate_b(t_container *container)
-{
-	rrotate_base(container->stack2);
-}
-
-void	rrotate_ab(t_container *container)
-{
-	rrotate_a(container);
-	rrotate_b(container);
-}
-
-static void	rrotate_base(t_stack *stack)
-{
-	t_list	*tail;
+	size_t	i;
+	int		last_num;
 
 	if (2 <= stack->size)
 	{
-		tail = ft_lstlast(stack->elements);
-		tail->prev->next = NULL;
-		tail->prev = NULL;
-		tail->next = NULL;
-		ft_lstadd_front(&(stack->elements), tail);
+		i = stack->size - 1;
+		last_num = stack->elems[i];
+		while (0 < i)
+		{
+			stack->elems[i] = stack->elems[i - 1];
+			i--;
+		}
+		stack->elems[i] = last_num;
 	}
+}
+
+void	rrotate_two_stacks(t_stack *stack1, t_stack *stack2)
+{
+	rrotate_one_stack(stack1);
+	rrotate_one_stack(stack2);
 }

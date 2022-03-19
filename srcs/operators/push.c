@@ -6,14 +6,14 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:20:57 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/19 19:33:41 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static t_stats	add_one_elem(t_stack *stack, int n);
-static t_stats	drop_one_elem(t_stack *stack);
+static t_status	add_one_elem(t_stack *stack, int n);
+static t_status	drop_one_elem(t_stack *stack);
 
 void	push_stack(t_stack *from_stack, t_stack *to_stack)
 {

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:23:57 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:24:06 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/19 19:32:19 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,7 +22,7 @@ t_status	do_check(t_stack *stack1, t_stack *stack2)
 		if (line == NULL)
 			break ;
 		if (!is_valid_operator(line) || \
-				do_operatin(stack1, stack2, line) == FAIL)
+				do_operation(stack1, stack2, line) == FAIL)
 		{
 			free(line);
 			ft_dprintf(STDERR_FILENO, "Error\n");

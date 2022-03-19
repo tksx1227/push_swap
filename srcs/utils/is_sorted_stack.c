@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/18 10:07:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/18 10:13:59 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/19 12:11:12 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,17 @@
 
 bool	is_sorted_stack(t_stack *stack)
 {
-	t_list	*node;
+	size_t	i;
 
-	if (stack->size <= 1)
-		return (true);
-	node = stack->elements;
-	while (node->next != NULL)
+	if (1 < stack->size)
 	{
-		if (*(int *)node->next->content < *(int *)node->content)
-			return (false);
-		node = node->next;
+		i = 0;
+		while (i < stack->size - 1)
+		{
+			if (stack->elems[i + 1] < stack->elems[i])
+				return (false);
+			i++;
+		}
 	}
 	return (true);
 }

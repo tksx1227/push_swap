@@ -1,16 +1,45 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   push_swap.c                                        :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/02/28 23:42:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 13:21:28 by ttomori          ###   ########.fr       */
+/*   Created: 2022/03/19 13:20:12 by ttomori           #+#    #+#             */
+/*   Updated: 2022/03/20 15:29:54 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+void	push_swap(int size, char **arr)
+{
+
+	t_stack	*stack1;
+	t_stack	*stack2;
+
+	stack1 = get_new_stack(size, arr);
+	stack2 = get_new_stack(0, NULL);
+	if (stack1 == NULL || stack2 == NULL)
+	{
+		free_stack(&stack1);
+		free_stack(&stack2);
+		exit(1);
+	}
+	if (!is_sorted_stack(stack1))
+	{
+		if (convert_simple_arr(stack1) == FAIL)
+		{
+			free_stack(&stack1);
+			free_stack(&stack2);
+			exit(1);
+		}
+		show_stack(stack1, "Stack A");
+		show_stack(stack2, "Stack B");
+	}
+	free_stack(&stack1);
+	free_stack(&stack2);
+}
 
 int	main(int argc, char **argv)
 {

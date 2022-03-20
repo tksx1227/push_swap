@@ -21,7 +21,7 @@ CFLAGS	:= -Wall -Wextra -Werror -MMD -MP
 DEVFLAG	:=
 
 ifdef WITH_CHECKER
-	CPATHS	:= $(shell find $(SRCDIR) -type f -name '*.c' -not -path '$(SRCDIR)/main.c')
+	CPATHS	:= $(shell find $(SRCDIR) -type f -name '*.c' -not -path '$(SRCDIR)/push_swap.c')
 	SRCDIRS	:= $(dir $(CPATHS))
 	OBJDIRS	:= $(subst $(SRCDIR), $(OBJDIR), $(SRCDIRS))
 

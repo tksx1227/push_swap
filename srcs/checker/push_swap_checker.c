@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:09:45 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:23:51 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/20 15:21:32 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -31,4 +31,22 @@ void	push_swap_checker(int size, char **arr)
 	free_stack(&stack2);
 	if (status == FAIL)
 		exit(1);
+}
+
+int	main(int argc, char **argv)
+{
+	if (argc == 1)
+	{
+		return (0);
+	}
+	else if (is_valid_args(argc, argv))
+	{
+		push_swap_checker(argc - 1, &argv[1]);
+	}
+	else
+	{
+		ft_dprintf(STDERR_FILENO, "Error\n");
+		return (1);
+	}
+	return (0);
 }

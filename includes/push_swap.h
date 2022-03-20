@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 13:16:30 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/20 11:05:00 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,6 +28,7 @@ t_stack		*get_new_stack(int size, char **arr);
 void		free_stack(t_stack **stack);
 void		show_stack(t_stack *stack, char *name);
 void		show_operators(t_list *operators);
+t_status	convert_simple_arr(t_stack *stack);
 
 /* Operators */
 void		swap_one_stack(t_stack *stack);

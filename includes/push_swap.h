@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 19:19:35 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 23:47:17 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ bool		is_valid_args(int size, char **args);
 bool		is_sorted_stack(t_stack *stack);
 t_stack		*get_new_stack(int size, char **arr, char *name);
 void		free_stack(t_stack **stack);
-void		show_stack(t_stack *stack, char *name);
+void		show_stack(t_stack *stack);
 void		show_operators(t_list *operators);
 t_status	convert_simple_arr(t_stack *stack);
 int			get_mid_from_sequence(int *arr, size_t size);

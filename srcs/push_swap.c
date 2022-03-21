@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 13:20:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 19:09:09 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 23:33:13 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,6 @@
 
 void	push_swap(int size, char **arr)
 {
-
 	t_stack	*stack1;
 	t_stack	*stack2;
 
@@ -34,11 +33,7 @@ void	push_swap(int size, char **arr)
 			free_stack(&stack2);
 			exit(1);
 		}
-		// show_stack(stack1, "Stack A");
-		// show_stack(stack2, "Stack B");
 		sort_recursion_for_stack_a(stack1, stack2, stack1->size);
-		// show_stack(stack1, "Stack A");
-		// show_stack(stack2, "Stack B");
 	}
 	free_stack(&stack1);
 	free_stack(&stack2);
@@ -56,10 +51,7 @@ int	main(int argc, char **argv)
 	}
 	else
 	{
-		ft_dprintf(STDERR_FILENO, "Error: Invalid arguments.\n");
-		ft_dprintf(STDERR_FILENO, "Usage: push_swap <numbers>.\n");
-		ft_dprintf(STDERR_FILENO, \
-				"Numbers are integers and must not be duplicated.\n");
+		ft_dprintf(STDERR_FILENO, "Error\n");
 		return (1);
 	}
 	return (0);

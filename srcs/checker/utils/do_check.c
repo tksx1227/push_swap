@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:23:57 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:32:19 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 23:45:11 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,7 +30,7 @@ t_status	do_check(t_stack *stack1, t_stack *stack2)
 		}
 		free(line);
 	}
-	if (is_sorted_stack(stack1))
+	if (stack2->size == 0 && is_sorted_stack(stack1))
 		ft_dprintf(STDOUT_FILENO, "OK\n");
 	else
 		ft_dprintf(STDOUT_FILENO, "KO\n");

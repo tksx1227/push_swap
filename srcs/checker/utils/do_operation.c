@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:23:14 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:23:24 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 23:43:05 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,7 +21,7 @@ t_status	do_operation(t_stack *stack1, t_stack *stack2, char *operator)
 	else if (ft_strcmp(operator, "ss\n") == 0)
 		swap_two_stacks(stack1, stack2);
 	else if (ft_strcmp(operator, "pa\n") == 0)
-		push_stack(stack1, stack2);
+		push_stack(stack2, stack1);
 	else if (ft_strcmp(operator, "pb\n") == 0)
 		push_stack(stack1, stack2);
 	else if (ft_strcmp(operator, "ra\n") == 0)

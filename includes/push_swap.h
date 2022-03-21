@@ -30,6 +30,8 @@ void		show_stack(t_stack *stack, char *name);
 void		show_operators(t_list *operators);
 t_status	convert_simple_arr(t_stack *stack);
 int			get_mid_from_sequence(int *arr, size_t size);
+void		sort_recursion_for_stack_a(t_stack *from_stack, t_stack *to_stack, \
+		size_t origin_chunk_size);
 
 /* Operators */
 void		swap_one_stack(t_stack *stack);

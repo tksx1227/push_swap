@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/20 11:46:24 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 18:36:54 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 19:17:39 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,10 @@ void	sort_recursion_for_stack_a(t_stack *from_stack, t_stack *to_stack, \
 	{
 		if (origin_chunk_size == 2 \
 				&& from_stack->elems[1] < from_stack->elems[0])
+		{
 			swap_one_stack(from_stack);
+			print_operator(from_stack->name, to_stack->name, "swap");
+		}
 		return ;
 	}
 	moved_chunk_size = origin_chunk_size / 2;
@@ -50,11 +53,15 @@ static void	sort_recursion_for_stack_b(t_stack *from_stack, t_stack *to_stack, \
 	{
 		if (origin_chunk_size == 2 \
 				&& from_stack->elems[0] < from_stack->elems[1])
+		{
 			swap_one_stack(from_stack);
+			print_operator(from_stack->name, to_stack->name, "swap");
+		}
 		i = 0;
 		while (i < origin_chunk_size)
 		{
 			push_stack(from_stack, to_stack);
+			print_operator(from_stack->name, to_stack->name, "push");
 			i++;
 		}
 		return ;
@@ -86,11 +93,13 @@ static void	move_gt_mid(t_stack *from_stack, t_stack *to_stack, \
 				|| (chunk_size % 2 == 0 && mid_val <= *from_stack->elems))
 		{
 			push_stack(from_stack, to_stack);
+			print_operator(from_stack->name, to_stack->name, "push");
 			i++;
 		}
 		else
 		{
 			rotate_one_stack(from_stack);
+			print_operator(from_stack->name, to_stack->name, "rotate");
 			rotate_count++;
 		}
 	}
@@ -98,6 +107,7 @@ static void	move_gt_mid(t_stack *from_stack, t_stack *to_stack, \
 	while (need_reverse_rotate && i < rotate_count)
 	{
 		rrotate_one_stack(from_stack);
+		print_operator(from_stack->name, to_stack->name, "rrotate");
 		i++;
 	}
 }
@@ -121,11 +131,13 @@ static void	move_lt_mid(t_stack *from_stack, t_stack *to_stack, \
 		if (*from_stack->elems < mid_val)
 		{
 			push_stack(from_stack, to_stack);
+			print_operator(from_stack->name, to_stack->name, "push");
 			i++;
 		}
 		else
 		{
 			rotate_one_stack(from_stack);
+			print_operator(from_stack->name, to_stack->name, "rotate");
 			rotate_count++;
 		}
 	}
@@ -133,6 +145,7 @@ static void	move_lt_mid(t_stack *from_stack, t_stack *to_stack, \
 	while (need_reverse_rotate && i < rotate_count)
 	{
 		rrotate_one_stack(from_stack);
+		print_operator(from_stack->name, to_stack->name, "rrotate");
 		i++;
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 18:36:05 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 19:19:35 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ void		show_stack(t_stack *stack, char *name);
 void		show_operators(t_list *operators);
 t_status	convert_simple_arr(t_stack *stack);
 int			get_mid_from_sequence(int *arr, size_t size);
+int			ft_strcmp(const char *s1, const char *s2);
 void		sort_recursion_for_stack_a(t_stack *from_stack, t_stack *to_stack, \
 		size_t origin_chunk_size);
 

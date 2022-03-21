@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:13:21 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:33:17 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/21 19:19:23 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,6 @@ t_node		*gnl_new_node(int fd);
 // util functions
 char		*ft_strchr_null_safe(const char *s, int c);
 char		*ft_strndup(const char *s, size_t size);
-int			ft_strcmp(const char *s1, const char *s2);
 char		*ft_strjoin_with_free(char *s1, char *s2);
 
 // checker

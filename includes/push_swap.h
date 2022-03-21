@@ -17,14 +17,15 @@
 
 typedef struct s_stack
 {
-	size_t	size;
 	int		*elems;
+	char	*name;
+	size_t	size;
 }	t_stack;
 
 /* Utils */
 bool		is_valid_args(int size, char **args);
 bool		is_sorted_stack(t_stack *stack);
-t_stack		*get_new_stack(int size, char **arr);
+t_stack		*get_new_stack(int size, char **arr, char *name);
 void		free_stack(t_stack **stack);
 void		show_stack(t_stack *stack, char *name);
 void		show_operators(t_list *operators);

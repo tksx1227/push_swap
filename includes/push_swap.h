@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 20:03:25 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 23:11:15 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,6 +38,10 @@ t_status	convert_to_sequence(t_stack *stack);
 int			get_mid_from_sequence(int *arr, size_t size);
 int			ft_strcmp(const char *s1, const char *s2);
 void		print_operator(t_stack_name stack_name, char *operator_name);
+void		move_lt_mid(\
+		t_stack *from_stack, t_stack *to_stack, size_t chunk_size);
+void		move_gt_mid(\
+		t_stack *from_stack, t_stack *to_stack, size_t chunk_size);
 
 /* Sort functions */
 void		sort_three_elems(t_stack *stack);
@@ -45,6 +49,10 @@ void		sort_four_elems(t_stack *stack1, t_stack *stack2);
 void		sort_five_elems(t_stack *stack1, t_stack *stack2);
 void		sort_le_five(t_stack *stack1, t_stack *stack2);
 void		sort_gt_five(t_stack *stack1, t_stack *stack2);
+void		sort_recursive_for_stack_a(\
+		t_stack *from_stack, t_stack *to_stack, size_t origin_size);
+void		sort_recursive_for_stack_b(\
+		t_stack *from_stack, t_stack *to_stack, size_t origin_chunk_size);
 
 /* Operators */
 void		swap_one_stack_with_print(\

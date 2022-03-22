@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 19:33:41 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 12:48:30 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -28,8 +28,7 @@ void	push_stack(t_stack *from_stack, t_stack *to_stack)
 		}
 		if (status == FAIL)
 		{
-			free_stack(&from_stack);
-			free_stack(&to_stack);
+			free_two_stacks(&from_stack, &to_stack);
 			exit(1);
 		}
 	}

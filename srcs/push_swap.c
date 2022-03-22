@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 13:20:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 23:33:13 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 12:46:16 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,22 +21,19 @@ void	push_swap(int size, char **arr)
 	stack2 = get_new_stack(0, NULL, "B");
 	if (stack1 == NULL || stack2 == NULL)
 	{
-		free_stack(&stack1);
-		free_stack(&stack2);
+		free_two_stacks(&stack1, &stack2);
 		exit(1);
 	}
 	if (!is_sorted_stack(stack1))
 	{
 		if (convert_simple_arr(stack1) == FAIL)
 		{
-			free_stack(&stack1);
-			free_stack(&stack2);
+			free_two_stacks(&stack1, &stack2);
 			exit(1);
 		}
 		sort_recursion_for_stack_a(stack1, stack2, stack1->size);
 	}
-	free_stack(&stack1);
-	free_stack(&stack2);
+	free_two_stacks(&stack1, &stack2);
 }
 
 int	main(int argc, char **argv)

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:09:45 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 23:35:44 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 12:47:04 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,13 +22,11 @@ void	push_swap_checker(int size, char **arr)
 	stack2 = get_new_stack(0, NULL, "B");
 	if (stack1 == NULL || stack2 == NULL)
 	{
-		free_stack(&stack1);
-		free_stack(&stack2);
+		free_two_stacks(&stack1, &stack2);
 		exit(1);
 	}
 	status = do_check(stack1, stack2);
-	free_stack(&stack1);
-	free_stack(&stack2);
+	free_two_stacks(&stack1, &stack2);
 	if (status == FAIL)
 		exit(1);
 }

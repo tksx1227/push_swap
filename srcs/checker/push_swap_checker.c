@@ -6,11 +6,11 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:09:45 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 12:47:04 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 18:14:38 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "../../includes/push_swap_checker.h"
+#include "push_swap_checker.h"
 
 void	push_swap_checker(int size, char **arr)
 {
@@ -18,8 +18,8 @@ void	push_swap_checker(int size, char **arr)
 	t_stack		*stack1;
 	t_stack		*stack2;
 
-	stack1 = get_new_stack(size, arr, "A");
-	stack2 = get_new_stack(0, NULL, "B");
+	stack1 = get_new_stack(size, arr, STACK_A);
+	stack2 = get_new_stack(0, NULL, STACK_B);
 	if (stack1 == NULL || stack2 == NULL)
 	{
 		free_two_stacks(&stack1, &stack2);

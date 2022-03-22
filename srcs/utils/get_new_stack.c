@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 00:45:39 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 18:47:33 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 18:02:45 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 
 static int	*convert_to_numbers(int size, char **arr);
 
-t_stack	*get_new_stack(int size, char **arr, char *name)
+t_stack	*get_new_stack(int size, char **arr, t_stack_name name)
 {
 	int		*elems;
 	t_stack	*stack;

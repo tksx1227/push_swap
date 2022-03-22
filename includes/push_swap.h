@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 18:17:56 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 18:21:25 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,10 +32,8 @@ typedef struct s_stack
 bool		is_valid_args(int size, char **args);
 bool		is_sorted_stack(t_stack *stack);
 t_stack		*get_new_stack(int size, char **arr, t_stack_name name);
-void		free_stack(t_stack **stack);
 void		free_two_stacks(t_stack **stack1, t_stack **stack2);
 void		show_stack(t_stack *stack);
-void		show_operators(t_list *operators);
 t_status	convert_simple_arr(t_stack *stack);
 int			get_mid_from_sequence(int *arr, size_t size);
 int			ft_strcmp(const char *s1, const char *s2);

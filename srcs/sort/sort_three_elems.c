@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 09:59:26 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 17:53:35 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 18:31:41 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ void	sort_three_elems(t_stack *stack)
 		case1_3_5(stack, 5);
 }
 
-static void case1_3_5(t_stack *stack, int num)
+static void	case1_3_5(t_stack *stack, int num)
 {
 	if (num == 1)
 	{
@@ -55,7 +55,7 @@ static void case1_3_5(t_stack *stack, int num)
 	}
 }
 
-static void case2_4(t_stack *stack, int num)
+static void	case2_4(t_stack *stack, int num)
 {
 	if (num == 2)
 	{

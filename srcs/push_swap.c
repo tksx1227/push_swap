@@ -31,7 +31,10 @@ void	push_swap(int size, char **arr)
 			free_two_stacks(&stack1, &stack2);
 			exit(1);
 		}
-		sort_recursion_for_stack_a(stack1, stack2, stack1->size);
+		if (stack1->size < 3)
+			sort_three_elem(stack1, stack2);
+		else
+			sort_recursion_for_stack_a(stack1, stack2, stack1->size);
 	}
 	free_two_stacks(&stack1, &stack2);
 }

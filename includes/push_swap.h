@@ -33,6 +33,7 @@ void		show_operators(t_list *operators);
 t_status	convert_simple_arr(t_stack *stack);
 int			get_mid_from_sequence(int *arr, size_t size);
 int			ft_strcmp(const char *s1, const char *s2);
+void		sort_three_elem(t_stack *stack1, t_stack *stack2);
 void		print_operator(char *from_stack_name, char *to_stack_name, \
 		char *operator_name);
 void		sort_recursion_for_stack_a(t_stack *from_stack, t_stack *to_stack, \

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/13 01:22:59 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/19 12:18:03 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 12:44:38 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,4 +20,10 @@ void	free_stack(t_stack **stack)
 		free(*stack);
 		*stack = NULL;
 	}
+}
+
+void	free_two_stacks(t_stack **stack1, t_stack **stack2)
+{
+	free_stack(stack1);
+	free_stack(stack2);
 }

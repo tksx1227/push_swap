@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 13:20:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 18:03:19 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:25:23 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,7 +26,7 @@ void	push_swap(int size, char **arr)
 	}
 	if (!is_sorted_stack(stack1))
 	{
-		if (convert_simple_arr(stack1) == FAIL)
+		if (convert_to_sequence(stack1) == FAIL)
 		{
 			free_two_stacks(&stack1, &stack2);
 			exit(1);

@@ -1,12 +1,12 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   convert_simple_arr.c                               :+:      :+:    :+:   */
+/*   convert_to_sequence.c                              :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:13:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/20 11:24:04 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:24:46 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int		get_intmax_idx(int *arr, size_t size);
 static size_t	get_min_idx(int	*arr, size_t size);
 static void		set_sequence_num(t_stack *stack, int *idx_arr);
 
-t_status	convert_simple_arr(t_stack *stack)
+t_status	convert_to_sequence(t_stack *stack)
 {
 	int		intmax_idx;
 	int		*idx_arr;

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 17:56:24 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 18:35:22 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 19:00:43 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -65,10 +65,10 @@ static int	get_min_val(t_stack *stack)
 
 	i = 0;
 	min_val = INT_MAX;
-	while (i < from_stack->size)
+	while (i < stack->size)
 	{
-		if (from_stack->elems[i] < min_val)
-			min_val = from_stack->elems[i];
+		if (stack->elems[i] < min_val)
+			min_val = stack->elems[i];
 		i++;
 	}
 	return (min_val);
@@ -81,10 +81,10 @@ static int	get_max_val(t_stack *stack)
 
 	i = 0;
 	max_val = INT_MIN;
-	while (i < from_stack->size)
+	while (i < stack->size)
 	{
-		if (max_val < from_stack->elems[i])
-			max_val = from_stack->elems[i];
+		if (max_val < stack->elems[i])
+			max_val = stack->elems[i];
 		i++;
 	}
 	return (max_val);

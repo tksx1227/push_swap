@@ -53,3 +53,6 @@ dkms.conf
 
 # Binary file
 bin/
+
+# Tester
+push_swap_tester/

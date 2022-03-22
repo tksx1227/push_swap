@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 19:24:55 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:03:25 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -47,12 +47,19 @@ void		sort_le_five(t_stack *stack1, t_stack *stack2);
 void		sort_gt_five(t_stack *stack1, t_stack *stack2);
 
 /* Operators */
-void		swap_one_stack(t_stack *stack);
-void		swap_two_stacks(t_stack *stack1, t_stack *stack2);
-void		push_stack(t_stack *from_stack, t_stack *to_stack);
-void		rotate_one_stack(t_stack *stack);
-void		rotate_two_stacks(t_stack *stack1, t_stack *stack2);
-void		rrotate_one_stack(t_stack *stack);
-void		rrotate_two_stacks(t_stack *stack1, t_stack *stack2);
+void		swap_one_stack_with_print(\
+		t_stack *stack, bool need_print);
+void		swap_two_stacks_with_print(\
+		t_stack *stack1, t_stack *stack2, bool need_print);
+void		push_stack_with_print(\
+		t_stack *from_stack, t_stack *to_stack, bool need_print);
+void		rotate_one_stack_with_print(\
+		t_stack *stack, bool need_print);
+void		rotate_two_stacks_with_print(\
+		t_stack *stack1, t_stack *stack2, bool need_print);
+void		rrotate_one_stack_with_print(\
+		t_stack *stack, bool need_print);
+void		rrotate_two_stacks_with_print(\
+		t_stack *stack1, t_stack *stack2, bool need_print);
 
 #endif

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 12:48:30 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:08:19 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,8 @@
 static t_status	add_one_elem(t_stack *stack, int n);
 static t_status	drop_one_elem(t_stack *stack);
 
-void	push_stack(t_stack *from_stack, t_stack *to_stack)
+void	push_stack_with_print(\
+		t_stack *from_stack, t_stack *to_stack, bool need_print)
 {
 	t_status	status;
 
@@ -23,14 +24,14 @@ void	push_stack(t_stack *from_stack, t_stack *to_stack)
 	{
 		status = add_one_elem(to_stack, from_stack->elems[0]);
 		if (status == SUCCESS)
-		{
 			status = drop_one_elem(from_stack);
-		}
 		if (status == FAIL)
 		{
 			free_two_stacks(&from_stack, &to_stack);
 			exit(1);
 		}
+		if (need_print)
+			print_operator(from_stack->name, "push");
 	}
 }
 

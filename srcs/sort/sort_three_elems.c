@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/15 09:59:26 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 18:31:41 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:05:22 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,36 +39,23 @@ void	sort_three_elems(t_stack *stack)
 static void	case1_3_5(t_stack *stack, int num)
 {
 	if (num == 1)
-	{
-		swap_one_stack(stack);
-		print_operator(stack->name, "swap");
-	}
+		swap_one_stack_with_print(stack, true);
 	else if (num == 3)
-	{
-		rotate_one_stack(stack);
-		print_operator(stack->name, "rotate");
-	}
+		rotate_one_stack_with_print(stack, true);
 	else if (num == 5)
-	{
-		rrotate_one_stack(stack);
-		print_operator(stack->name, "rrotate");
-	}
+		rrotate_one_stack_with_print(stack, true);
 }
 
 static void	case2_4(t_stack *stack, int num)
 {
 	if (num == 2)
 	{
-		swap_one_stack(stack);
-		rrotate_one_stack(stack);
-		print_operator(stack->name, "swap");
-		print_operator(stack->name, "rrotate");
+		swap_one_stack_with_print(stack, true);
+		rrotate_one_stack_with_print(stack, true);
 	}
 	else if (num == 4)
 	{
-		swap_one_stack(stack);
-		rotate_one_stack(stack);
-		print_operator(stack->name, "swap");
-		print_operator(stack->name, "rotate");
+		swap_one_stack_with_print(stack, true);
+		rotate_one_stack_with_print(stack, true);
 	}
 }

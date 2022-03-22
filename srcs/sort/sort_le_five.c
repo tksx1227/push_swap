@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 15:21:29 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 18:00:59 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:04:53 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -23,9 +23,6 @@ void	sort_le_five(t_stack *stack1, t_stack *stack2)
 	else if (stack1->size == 2)
 	{
 		if (stack1->elems[1] < stack1->elems[0])
-		{
-			swap_one_stack(stack1);
-			print_operator(stack1->name, "swap");
-		}
+			swap_one_stack_with_print(stack1, true);
 	}
 }

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 17:56:24 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 19:00:43 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/22 20:04:18 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,17 +20,11 @@ void	sort_five_elems(t_stack *stack1, t_stack *stack2)
 {
 	move_min_and_max_val(stack1, stack2);
 	if (stack2->elems[1] < stack2->elems[0])
-	{
-		swap_one_stack(stack2);
-		print_operator(stack2->name, "swap");
-	}
+		swap_one_stack_with_print(stack2, true);
 	sort_three_elems(stack1);
-	push_stack(stack2, stack1);
-	push_stack(stack2, stack1);
-	rotate_one_stack(stack1);
-	print_operator(stack2->name, "push");
-	print_operator(stack2->name, "push");
-	print_operator(stack1->name, "rotate");
+	push_stack_with_print(stack2, stack1, true);
+	push_stack_with_print(stack2, stack1, true);
+	rotate_one_stack_with_print(stack1, true);
 }
 
 static void	move_min_and_max_val(t_stack *from_stack, t_stack *to_stack)
@@ -46,15 +40,11 @@ static void	move_min_and_max_val(t_stack *from_stack, t_stack *to_stack)
 	{
 		if (min_val == *from_stack->elems || max_val == *from_stack->elems)
 		{
-			push_stack(from_stack, to_stack);
-			print_operator(from_stack->name, "push");
+			push_stack_with_print(from_stack, to_stack, true);
 			i++;
 		}
 		else
-		{
-			rotate_one_stack(from_stack);
-			print_operator(from_stack->name, "rotate");
-		}
+			rotate_one_stack_with_print(from_stack, true);
 	}
 }
 

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 17:56:24 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 20:04:18 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/23 23:53:57 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,20 +14,22 @@
 
 static int	get_min_val(t_stack *stack);
 static int	get_max_val(t_stack *stack);
-static void	move_min_and_max_val(t_stack *from_stack, t_stack *to_stack);
+static void	move_min_and_max_val(\
+		t_stack *from_stack, t_stack *to_stack, t_list **operators);
 
-void	sort_five_elems(t_stack *stack1, t_stack *stack2)
+void	sort_five_elems(t_stack *stack1, t_stack *stack2, t_list **operators)
 {
-	move_min_and_max_val(stack1, stack2);
+	move_min_and_max_val(stack1, stack2, operators);
 	if (stack2->elems[1] < stack2->elems[0])
-		swap_one_stack_with_print(stack2, true);
-	sort_three_elems(stack1);
-	push_stack_with_print(stack2, stack1, true);
-	push_stack_with_print(stack2, stack1, true);
-	rotate_one_stack_with_print(stack1, true);
+		swap_and_set_operator(stack2, operators);
+	sort_three_elems(stack1, operators);
+	push_and_set_operator(stack2, stack1, operators);
+	push_and_set_operator(stack2, stack1, operators);
+	rotate_and_set_operator(stack1, operators);
 }
 
-static void	move_min_and_max_val(t_stack *from_stack, t_stack *to_stack)
+static void	move_min_and_max_val(\
+		t_stack *from_stack, t_stack *to_stack, t_list **operators)
 {
 	int	i;
 	int	min_val;
@@ -40,11 +42,11 @@ static void	move_min_and_max_val(t_stack *from_stack, t_stack *to_stack)
 	{
 		if (min_val == *from_stack->elems || max_val == *from_stack->elems)
 		{
-			push_stack_with_print(from_stack, to_stack, true);
+			push_and_set_operator(from_stack, to_stack, operators);
 			i++;
 		}
 		else
-			rotate_one_stack_with_print(from_stack, true);
+			rotate_and_set_operator(from_stack, operators);
 	}
 }
 

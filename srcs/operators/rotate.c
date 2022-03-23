@@ -6,16 +6,17 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:34:58 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 20:09:07 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:30:19 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	rotate_one_stack_with_print(t_stack *stack, bool need_print)
+void	rotate_and_set_operator(t_stack *stack, t_list **operators)
 {
 	size_t	i;
 	int		first_num;
+	t_list	*new_operator;
 
 	if (2 <= stack->size)
 	{
@@ -27,14 +28,22 @@ void	rotate_one_stack_with_print(t_stack *stack, bool need_print)
 			i++;
 		}
 		stack->elems[i] = first_num;
-		if (need_print)
-			print_operator(stack->name, "rotate");
+		if (operators != NULL)
+		{
+			if (stack->name == STACK_A)
+				new_operator = ft_lstnew("ra");
+			else
+				new_operator = ft_lstnew("rb");
+			if (new_operator == NULL)
+				exit(1);
+			ft_lstadd_back(operators, new_operator);
+		}
 	}
 }
 
-void	rotate_two_stacks_with_print(\
-		t_stack *stack1, t_stack *stack2, bool need_print)
+void	rotate_double_and_set_operator(t_stack *stack1, t_stack *stack2, \
+		t_list **operators)
 {
-	rotate_one_stack_with_print(stack1, need_print);
-	rotate_one_stack_with_print(stack2, need_print);
+	rotate_and_set_operator(stack1, operators);
+	rotate_and_set_operator(stack2, operators);
 }

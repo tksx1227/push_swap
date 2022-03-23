@@ -1,37 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   check_args.c                                       :+:      :+:    :+:   */
+/*   is_valid_args.c                                    :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/12 14:42:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/12 17:38:55 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/23 08:49:44 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-static bool	is_digit_all(int size, char **arr);
 static bool	is_integer(char	*s);
+static bool	is_integer_all(int size, char **arr);
 static bool	is_unique_all(int size, char **arr);
 
 bool	is_valid_args(int size, char **args)
 {
 	if (size == 1)
-	{
 		return (false);
-	}
 	size--;
 	args = &args[1];
-	if (is_digit_all(size, args) && is_unique_all(size, args))
-	{
+	if (is_integer_all(size, args) && is_unique_all(size, args))
 		return (true);
-	}
 	return (false);
 }
 
-static bool	is_digit_all(int size, char **arr)
+static bool	is_integer_all(int size, char **arr)
 {
 	int	i;
 
@@ -47,8 +43,8 @@ static bool	is_digit_all(int size, char **arr)
 
 static bool	is_integer(char	*s)
 {
-	int			i;
 	int			sign;
+	size_t		i;
 	long long	n;
 
 	i = 0;

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 23:13:08 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 19:24:46 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:51:30 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,7 @@ static int		get_intmax_idx(int *arr, size_t size);
 static size_t	get_min_idx(int	*arr, size_t size);
 static void		set_sequence_num(t_stack *stack, int *idx_arr);
 
-t_status	convert_to_sequence(t_stack *stack)
+void	convert_to_sequence(t_stack *stack)
 {
 	int		intmax_idx;
 	int		*idx_arr;
@@ -25,7 +25,7 @@ t_status	convert_to_sequence(t_stack *stack)
 
 	idx_arr = (int *)malloc(sizeof(int) * stack->size);
 	if (idx_arr == NULL)
-		return (FAIL);
+		exit(1);
 	intmax_idx = get_intmax_idx(stack->elems, stack->size);
 	i = 0;
 	while (i < stack->size)
@@ -39,7 +39,6 @@ t_status	convert_to_sequence(t_stack *stack)
 		idx_arr[stack->size - 1] = intmax_idx;
 	set_sequence_num(stack, idx_arr);
 	free(idx_arr);
-	return (SUCCESS);
 }
 
 static int	get_intmax_idx(int *arr, size_t size)

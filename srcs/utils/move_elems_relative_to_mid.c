@@ -6,17 +6,18 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/22 23:08:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 23:10:14 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/23 23:47:24 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
 static bool	get_need_reverse_rotate_flag(size_t stack_size, size_t chunk_size);
-static void	rrotate_n_times(\
-		t_stack *stack, bool need_rotate, size_t rotate_count);
+static void	rrotate_n_times(t_stack *stack, bool need_rotate, \
+		size_t rotate_count, t_list **operators);
 
-void	move_lt_mid(t_stack *from_stack, t_stack *to_stack, size_t chunk_size)
+void	move_lt_mid(t_stack *from_stack, t_stack *to_stack, \
+		size_t chunk_size, t_list **operators)
 {
 	int		mid_val;
 	bool	need_reverse_rotate;
@@ -32,19 +33,20 @@ void	move_lt_mid(t_stack *from_stack, t_stack *to_stack, size_t chunk_size)
 	{
 		if (*from_stack->elems < mid_val)
 		{
-			push_stack_with_print(from_stack, to_stack, true);
+			push_and_set_operator(from_stack, to_stack, operators);
 			i++;
 		}
 		else
 		{
-			rotate_one_stack_with_print(from_stack, true);
+			rotate_and_set_operator(from_stack, operators);
 			rotate_count++;
 		}
 	}
-	rrotate_n_times(from_stack, need_reverse_rotate, rotate_count);
+	rrotate_n_times(from_stack, need_reverse_rotate, rotate_count, operators);
 }
 
-void	move_gt_mid(t_stack *from_stack, t_stack *to_stack, size_t chunk_size)
+void	move_gt_mid(t_stack *from_stack, t_stack *to_stack, \
+		size_t chunk_size, t_list **operators)
 {
 	int		mid_val;
 	bool	need_reverse_rotate;
@@ -61,16 +63,16 @@ void	move_gt_mid(t_stack *from_stack, t_stack *to_stack, size_t chunk_size)
 		if (mid_val < *from_stack->elems \
 				|| (chunk_size % 2 == 0 && mid_val <= *from_stack->elems))
 		{
-			push_stack_with_print(from_stack, to_stack, true);
+			push_and_set_operator(from_stack, to_stack, operators);
 			i++;
 		}
 		else
 		{
-			rotate_one_stack_with_print(from_stack, true);
+			rotate_and_set_operator(from_stack, operators);
 			rotate_count++;
 		}
 	}
-	rrotate_n_times(from_stack, need_reverse_rotate, rotate_count);
+	rrotate_n_times(from_stack, need_reverse_rotate, rotate_count, operators);
 }
 
 static bool	get_need_reverse_rotate_flag(size_t stack_size, size_t chunk_size)
@@ -83,8 +85,8 @@ static bool	get_need_reverse_rotate_flag(size_t stack_size, size_t chunk_size)
 	return (need_reverse_rotate);
 }
 
-static void	rrotate_n_times(\
-		t_stack *stack, bool need_rotate, size_t rotate_count)
+static void	rrotate_n_times(t_stack *stack, bool need_rotate, \
+		size_t rotate_count, t_list **operators)
 {
 	size_t	i;
 
@@ -93,7 +95,7 @@ static void	rrotate_n_times(\
 		i = 0;
 		while (i < rotate_count)
 		{
-			rrotate_one_stack_with_print(stack, true);
+			rrotate_and_set_operator(stack, operators);
 			i++;
 		}
 	}

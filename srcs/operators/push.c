@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/01 01:20:28 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 20:08:19 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 08:52:09 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,9 +15,10 @@
 static t_status	add_one_elem(t_stack *stack, int n);
 static t_status	drop_one_elem(t_stack *stack);
 
-void	push_stack_with_print(\
-		t_stack *from_stack, t_stack *to_stack, bool need_print)
+void	push_and_set_operator(\
+		t_stack *from_stack, t_stack *to_stack, t_list **operators)
 {
+	t_list		*new_operator;
 	t_status	status;
 
 	if (0 < from_stack->size)
@@ -26,12 +27,17 @@ void	push_stack_with_print(\
 		if (status == SUCCESS)
 			status = drop_one_elem(from_stack);
 		if (status == FAIL)
-		{
-			free_two_stacks(&from_stack, &to_stack);
 			exit(1);
+		if (operators != NULL)
+		{
+			if (from_stack->name == STACK_A)
+				new_operator = ft_lstnew("pb");
+			else
+				new_operator = ft_lstnew("pa");
+			if (new_operator == NULL)
+				exit(1);
+			ft_lstadd_back(operators, new_operator);
 		}
-		if (need_print)
-			print_operator(from_stack->name, "push");
 	}
 }
 

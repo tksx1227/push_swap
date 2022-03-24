@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:23:14 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/22 20:12:56 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:26:32 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,27 +15,27 @@
 t_status	do_operation(t_stack *stack1, t_stack *stack2, char *operator)
 {
 	if (ft_strcmp(operator, "sa\n") == 0)
-		swap_one_stack_with_print(stack1, false);
+		swap_and_set_operator(stack1, NULL);
 	else if (ft_strcmp(operator, "sb\n") == 0)
-		swap_one_stack_with_print(stack2, false);
+		swap_and_set_operator(stack2, NULL);
 	else if (ft_strcmp(operator, "ss\n") == 0)
-		swap_two_stacks_with_print(stack1, stack2, false);
+		swap_double_and_set_operator(stack1, stack2, NULL);
 	else if (ft_strcmp(operator, "pa\n") == 0)
-		push_stack_with_print(stack2, stack1, false);
+		push_and_set_operator(stack2, stack1, NULL);
 	else if (ft_strcmp(operator, "pb\n") == 0)
-		push_stack_with_print(stack1, stack2, false);
+		push_and_set_operator(stack1, stack2, NULL);
 	else if (ft_strcmp(operator, "ra\n") == 0)
-		rotate_one_stack_with_print(stack1, false);
+		rotate_and_set_operator(stack1, NULL);
 	else if (ft_strcmp(operator, "rb\n") == 0)
-		rotate_one_stack_with_print(stack2, false);
+		rotate_and_set_operator(stack2, NULL);
 	else if (ft_strcmp(operator, "rr\n") == 0)
-		rotate_two_stacks_with_print(stack1, stack2, false);
+		rotate_double_and_set_operator(stack1, stack2, NULL);
 	else if (ft_strcmp(operator, "rra\n") == 0)
-		rrotate_one_stack_with_print(stack1, false);
+		rrotate_and_set_operator(stack1, NULL);
 	else if (ft_strcmp(operator, "rrb\n") == 0)
-		rrotate_one_stack_with_print(stack2, false);
-	else if (ft_strcmp(operator, "rra\n") == 0)
-		rrotate_two_stacks_with_print(stack1, stack2, false);
+		rrotate_and_set_operator(stack2, NULL);
+	else if (ft_strcmp(operator, "rrr\n") == 0)
+		rrotate_double_and_set_operator(stack1, stack2, NULL);
 	else
 		return (FAIL);
 	return (SUCCESS);

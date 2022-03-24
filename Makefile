@@ -31,11 +31,6 @@ ifdef WITH_CHECKER
 	DEPS	:= $(join $(OBJDIRS), $(FILES:.c=.d))
 
 	PS		:= $(BINDIR)/checker
-	DEVFLAG += -fsanitize=address -g
-endif
-
-ifdef DEBUG
-	DEVFLAG += -fsanitize=address -g
 endif
 
 all: $(LIBFT) $(BINDIR) $(sort $(OBJDIRS)) $(PS)
@@ -43,7 +38,7 @@ all: $(LIBFT) $(BINDIR) $(sort $(OBJDIRS)) $(PS)
 $(NAME): all
 
 $(PS): $(OBJS) $(LIBFT)
-	$(CC) $(DEVFLAG) $(CFLAGS) -o $@ $^
+	$(CC) $(CFLAGS) -o $@ $^
 
 $(OBJDIR)/%.o: $(SRCDIR)/%.c
 	$(CC) $(CFLAGS) $(addprefix -I, $(INCDIRS)) -c $< -o $@

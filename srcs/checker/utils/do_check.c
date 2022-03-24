@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:23:57 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/24 09:36:26 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:41:01 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,13 +21,13 @@ void	do_check(t_stack *stack1, t_stack *stack2)
 		line = get_next_line(0);
 		if (line == NULL)
 			break ;
-		if (!is_valid_operator(line) || \
-				do_operation(stack1, stack2, line) == FAIL)
+		if (!is_valid_operator(line))
 		{
 			free(line);
 			ft_dprintf(STDERR_FILENO, "Error\n");
 			exit(1);
 		}
+		do_operation(stack1, stack2, line);
 		free(line);
 	}
 	if (stack2->size == 0 && is_sorted_stack(stack1))

@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 17:13:21 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 19:19:23 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:36:45 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ char		*ft_strjoin_with_free(char *s1, char *s2);
 // checker
 bool		is_valid_operator(char *line);
 void		push_swap_checker(int size, char **arr);
-t_status	do_check(t_stack *stack1, t_stack *stack2);
+void		do_check(t_stack *stack1, t_stack *stack2);
 t_status	do_operation(t_stack *stack1, t_stack *stack2, char *operator);
 
 #endif

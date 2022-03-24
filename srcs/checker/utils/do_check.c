@@ -6,13 +6,13 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 19:23:57 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/21 23:45:11 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:36:26 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap_checker.h"
 
-t_status	do_check(t_stack *stack1, t_stack *stack2)
+void	do_check(t_stack *stack1, t_stack *stack2)
 {
 	char	*line;
 
@@ -26,7 +26,7 @@ t_status	do_check(t_stack *stack1, t_stack *stack2)
 		{
 			free(line);
 			ft_dprintf(STDERR_FILENO, "Error\n");
-			return (FAIL);
+			exit(1);
 		}
 		free(line);
 	}
@@ -34,5 +34,4 @@ t_status	do_check(t_stack *stack1, t_stack *stack2)
 		ft_dprintf(STDOUT_FILENO, "OK\n");
 	else
 		ft_dprintf(STDOUT_FILENO, "KO\n");
-	return (SUCCESS);
 }

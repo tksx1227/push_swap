@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 13:20:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/24 08:50:25 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:11:30 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -18,7 +18,6 @@ void	push_swap(int size, char **arr)
 	t_stack	*stack1;
 	t_stack	*stack2;
 
-	operators = (t_list *)malloc(sizeof(t_list));
 	stack1 = get_new_stack(size, arr, STACK_A);
 	stack2 = get_new_stack(0, NULL, STACK_B);
 	if (operators == NULL || stack1 == NULL || stack2 == NULL)
@@ -32,9 +31,9 @@ void	push_swap(int size, char **arr)
 		else
 			sort_gt_five(stack1, stack2, &operators);
 		print_operators(&operators);
+		ft_lstclear(&operators, NULL);
 	}
 	free_two_stacks(&stack1, &stack2);
-	ft_lstclear(&operators, NULL);
 }
 
 int	main(int argc, char **argv)

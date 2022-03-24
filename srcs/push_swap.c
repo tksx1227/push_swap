@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/03/19 13:20:12 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/24 09:11:30 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:13:30 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ void	push_swap(int size, char **arr)
 
 	stack1 = get_new_stack(size, arr, STACK_A);
 	stack2 = get_new_stack(0, NULL, STACK_B);
-	if (operators == NULL || stack1 == NULL || stack2 == NULL)
+	if (stack1 == NULL || stack2 == NULL)
 		exit(1);
 	if (!is_sorted_stack(stack1))
 	{

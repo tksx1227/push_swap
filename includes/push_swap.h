@@ -6,7 +6,7 @@
 /*   By: ttomori <ttomori@student.42tokyo.jp>       +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/02/28 23:53:50 by ttomori           #+#    #+#             */
-/*   Updated: 2022/03/24 08:51:06 by ttomori          ###   ########.fr       */
+/*   Updated: 2022/03/24 09:32:36 by ttomori          ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,21 +14,6 @@
 # define PUSH_SWAP_H
 
 # include "ft_dprintf.h"
-
-/* typedef enum e_operator */
-/* { */
-/* 	SA, */
-/* 	SB, */
-/* 	SS, */
-/* 	PA, */
-/* 	PB, */
-/* 	RA, */
-/* 	RB, */
-/* 	RR, */
-/* 	RRA, */
-/* 	RRB, */
-/* 	RRR, */
-/* }	t_operator; */
 
 typedef enum e_stack_name
 {

@@ -56,3 +56,6 @@ bin/
 
 # Tester
 push_swap_tester/
+
+# ctags file
+tags
